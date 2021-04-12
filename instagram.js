@@ -1,9 +1,9 @@
 const { Usuario, Post, Comentario, sequelize } = require('./models')
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
 
 /*
 
-/ ----------------
+// ----------------------------------------Metodos de Procura------------
 Usuario.findAll()
 .then((resultado) => {
     console.table(resultado.map(user => user.toJSON()));
@@ -94,16 +94,97 @@ Comentario.findOne({
 //  });
 
 
-for (let index = 0; index < 6 ; index++) {
+// for (let index = 0; index < 6 ; index++) {
    
-    Comentario.findAll({
-        order:[['id','ASC']],
-        offset: index,
-        limit: 2
+//     Comentario.findAll({
+//         order:[['id','ASC']],
+//         offset: index,
+//         limit: 2
     
-    })
-    .then((resultado) => {
-        console.table(resultado.map(user => user.toJSON()));
-    }); 
+//     })
+//     .then((resultado) => {
+//         console.table(resultado.map(user => user.toJSON()));
+//     }); 
 
-}    
+// }    
+
+// ------------------------------------ CRUD------------------------------
+
+
+// Usuario.create({
+//     nome: 'Natalia',
+//     email: 'nat@digitalhouse.com',
+//     senha: 'maravilhosaaaa123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+// Usuario.update({
+//     senha: 'novasenha123'
+// }, {
+//     where: {
+//         id: 8
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+// Usuario.destroy({
+//     where: {
+//         id: 6
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+//------------------------------------- DEAFIO SEQUELIZE - CRUD---------------------
+// Usuario.create({
+//     nome: 'Bárbara Lícia',
+//     email: 'barbaralicia@avanade.com',
+//     senha: 'babi123'
+// })
+// .then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Post.create({
+//          texto: 'DALE!',
+//          usuarios_id: 10,
+         
+//          where:{
+//             usuarios_id: 10
+//          }
+//      }).then((resultado) => {
+//          console.log(resultado.toJSON());
+//      });
+
+// Post.findAll()
+// .then((resultado) => {
+//     console.table(resultado.map(user => user.toJSON()));
+// }); 
+
+// Usuario.update({
+//      email: 'sergio@digitalhouse.com'
+//  }, {
+//      where: {
+//          nome:{[Op.like]: '%Sergio%'}
+//      }
+//  }).then((resultado) => {
+//      console.log(resultado);
+//  })
+
+// Usuario.findAll()
+//  .then((resultado) => {
+//      console.table(resultado.map(user => user.toJSON()));
+// });
+
+// Usuario.destroy({
+//       where: {
+//           id: 3
+//       }
+//   }).then((resultado) => {
+//       console.log(resultado);
+//   })
+    
+//  Usuario.findAll()
+//   .then((resultado) => {
+//       console.table(resultado.map(user => user.toJSON()));
+//  });
