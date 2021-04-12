@@ -1,10 +1,12 @@
 const { Usuario, Post, Comentario, sequelize } = require('./models')
+const { Op } = require('sequelize');
+
 /*
 
 / ----------------
 Usuario.findAll()
 .then((resultado) => {
-    console.log(resultado.map(user => user.toJSON()));
+    console.table(resultado.map(user => user.toJSON()));
 }); 
 
 Usuario.findOne({
@@ -13,23 +15,33 @@ Usuario.findOne({
     }
 })
 .then((resultado) => {
-    console.log(resultado);
+    console.table(resultado);
 });
 
 Usuario.findByPk(2)
 .then((resultado) => {
-    console.log(resultado);
+    console.table(resultado);
 });
 
 / ----------------
 Post.findAll()
 .then((resultado) => {
-    console.log(resultado.map(user => user.toJSON()));
+    console.table(resultado.map(user => user.toJSON()));
 }); 
+
+Post.findAll({
+    where: {
+        texto: {[Op.like]: '%oi'}
+    }
+})
+.then((resultado) => {
+    console.table(resultado.map(user => user.toJSON()));
+}); 
+
 
 Post.findByPk(2)
 .then((resultado) => {
-    console.log(resultado);
+    console.table(resultado);
 })
 
 Post.findOne({
@@ -38,18 +50,18 @@ Post.findOne({
     }
 })
 .then((resultado) => {
-    console.log(resultado);
+    console.table(resultado);
 });
 
 / ----------------
 Comentario.findAll()
 .then((resultado) => {
-    console.log(resultado.map(user => user.toJSON()));
+    console.table(resultado.map(user => user.toJSON()));
 }); 
 
 Comentario.findByPk(2)
 .then((resultado) => {
-    console.log(resultado);
+    console.table(resultado);
 })
 
 Comentario.findOne({
@@ -58,18 +70,34 @@ Comentario.findOne({
     }
 })
 .then((resultado) => {
-    console.log(resultado);
+    console.table(resultado);
 });
 
 */
 
+//  Usuario.findAll({
+// where: {
+//     nome: {[Op.like]: '%a%'}
 
-Post.findOne({
-    where: {
-        texto:'Como foi o fim de semana?'
-    }
-})
-.then((resultado) => {
-    console.log(resultado);
-});
+//     }
+// })
+// .then((resultado) => {     
+//     console.table(resultado.map(user => user.toJSON()));
+// });
 
+//  Usuario.findAll({
+//     where:{nome:{[Op.notLike]: '%a%'}}
+    
+//  })
+//  .then((resultado) => {
+//      console.table(resultado.map(Usuario => Usuario.toJSON()));
+//  });
+
+// Post.findAll({
+//     offset:1,
+//     limit: 1 
+    
+// })
+// .then((resultado) => {
+//     console.table(resultado.map(user => user.toJSON()));
+// }); 
