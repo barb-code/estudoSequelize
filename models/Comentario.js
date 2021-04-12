@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         'Comentario', {
             texto: DataTypes.STRING,
             usuarios_id: DataTypes.INTEGER,
-            post_id: DataTypes.INTEGER
+            posts_id: DataTypes.INTEGER
         }, {
             tableName: "comentarios",
             timestamps: false

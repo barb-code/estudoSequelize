@@ -93,11 +93,17 @@ Comentario.findOne({
 //      console.table(resultado.map(Usuario => Usuario.toJSON()));
 //  });
 
-// Post.findAll({
-//     offset:1,
-//     limit: 1 
+
+for (let index = 0; index < 6 ; index++) {
+   
+    Comentario.findAll({
+        order:[['id','ASC']],
+        offset: index,
+        limit: 2
     
-// })
-// .then((resultado) => {
-//     console.table(resultado.map(user => user.toJSON()));
-// }); 
+    })
+    .then((resultado) => {
+        console.table(resultado.map(user => user.toJSON()));
+    }); 
+
+}    
