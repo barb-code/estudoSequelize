@@ -188,3 +188,18 @@ Comentario.findOne({
 //   .then((resultado) => {
 //       console.table(resultado.map(user => user.toJSON()));
 //  });
+
+ 
+// Post.findByPk(1,{include:["curtiu"]}).then(
+//     post =>{
+//         console.log(post.toJSON());
+//         sequelize.close();
+//     }
+// ) 
+
+Usuario.findByPk(1,{include:["curtiu"]}).then(
+    usuario =>{
+        console.log(usuario.toJSON());
+        sequelize.close();
+    }
+) 
